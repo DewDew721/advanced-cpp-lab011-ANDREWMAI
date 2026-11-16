@@ -38,6 +38,7 @@ bool Map::insert(const std::string& key, int value) {
         return false;
     }
     entries_.push_back({key, value});
+    sortEntries();
     return true;
 }
 
@@ -47,6 +48,7 @@ bool Map::update(const std::string& key, int newValue) {
         return false;
     }
     entries_[index].value = newValue;
+    sortEntries();
     return true;
 }
 
@@ -56,6 +58,7 @@ bool Map::erase(const std::string& key) {
         return false;
     }
     entries_.erase(entries_.begin() + index);
+    sortEntries();
     return true;
 }
    
